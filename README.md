@@ -1,7 +1,25 @@
-## curso-platzi-react-avanzado ⚛️
+# Preparando entorno de desarrollo
 
-**¡Sígueme en Youtube para más contenido de React y Javascript!** 👉 https://www.youtube.com/midudev
+1. Instalar webpack 
 
-**¡Sígueme en Twitch para streams sobre desarrollo web!** 👉 https://www.twitch.tv/midudev
+* npm install webpack webpack-cli --save-dev
 
-Repositorio con el código del [Curso Avanzado de React de Platzi](https://platzi.com/cursos/react-avanzado/)
+2. Instalar pugin de html
+
+* npm install html-webpack-plugin --save-dev
+
+3. Install webpack server
+
+* npm install webpack-dev-server --save-dev
+
+4. Instalar React y React dom
+
+* npm install react react-dom
+
+5. Instalar dependencias de Babel
+
+* npm install @babel/core @babel/preset-env babel-loader @babel/preset-react --save-dev
+
+6. Instalar Linter
+
+* npm install standard
