@@ -1,6 +1,7 @@
 import React from 'react'
 import { render } from 'react-dom'
+import App from './App'
 
-render(<h1>Holas soy un h1 Esto se renderiza automatico </h1>,
+render(<App />,
   document.getElementById('app')
 )
