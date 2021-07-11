@@ -1,33 +1,23 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { Category } from '../Category'
-import { categories } from '../../../api/db.json'
 import { Item, List } from './styled'
-import { getAPI } from '../../Utilities/Rest'
-
-const URL_GET_CATEGORIES = 'https://petgram-o7875jfn3-duvanmorenocardona.vercel.app/categories'
+import { useGetCategoriesData } from '../../Hooks/useGetCategoriesData'
 
 const ListOfCategories = () => {
-  // const [categories, setCategories] = useState([])
-
-  useEffect(() => {
-    const categories = getAPI(URL_GET_CATEGORIES)
-    console.log({ categories })
-    // try {
-    //   getAPI(URL_GET_CATEGORIES)
-    // } catch (error) {
-    //   console.error(error)
-    //   setCategories([])
-    // }
-  }, [])
-
+  const { categories, loading } = useGetCategoriesData()
   return (
-    <List>
-      {categories.map((category, key) =>
-        <Item key={category.id}>
-          <Category
-            {...category}
-          />
-        </Item>)}
+    <List loading={loading}>
+      {!loading
+        ? categories.map((category) =>
+          <Item key={category.id}>
+            <Category
+              {...category}
+            />
+          </Item>)
+        : [1, 2, 3, 4, 5].map(
+            (categories, key) =>
+              <Item key={key} />
+          )}
     </List>
   )
 }
