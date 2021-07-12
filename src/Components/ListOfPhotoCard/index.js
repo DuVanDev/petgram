@@ -6,7 +6,7 @@ export const ListOfPhotoCard = () => {
   return (
     <ul>
       {
-		[1, 2].map(
+		[1, 2, 3, 4, 5, 6].map(
 		  (photo, key) =>
   <li key={key}>
     <PhotoCard src={DEFAULT_IMAGE} />
