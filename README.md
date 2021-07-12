@@ -23,3 +23,15 @@
 6. Instalar Linter
 
 * npm install standard
+
+# Paquetes para desarrollo
+
+1. Instalar intersectionObserver
+
+* npm install intersection-observer
+
+# Paquetes para usar GraphQL
+
+1. Install Apollo
+
+* npm i apollo-boost react-apollo graphql
