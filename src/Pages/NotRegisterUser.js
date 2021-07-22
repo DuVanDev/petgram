@@ -1,19 +1,17 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { LoginForm } from '../Components/LoginForm'
 import { RegisterMutation } from '../Containers/RegisterMutation'
 import { LoginMutation } from '../Containers/LoginMutation'
 import { LoginContext } from '../Context/LoginContext'
 
 export const NotRegisterUser = () => {
+  const { loginUser } = useContext(LoginContext)
+
   return (
-    <LoginContext.Consumer>
-      {
-        ({ loginUser }) => {
-          return (
-            <div>
-              Sing Up
-              <RegisterMutation>
-                {
+    <div>
+      Sing Up
+      <RegisterMutation>
+        {
                   (register, { error, loading }) => {
                     const onSubmit = async ({ email, password }) => {
                       try {
@@ -39,10 +37,10 @@ export const NotRegisterUser = () => {
                     )
                   }
                 }
-              </RegisterMutation>
-              Sign In
-              <LoginMutation>
-                {
+      </RegisterMutation>
+      Sign In
+      <LoginMutation>
+        {
                   (login, { error, loading }) => {
                     const onSubmit = async ({ email, password }) => {
                       try {
@@ -61,11 +59,7 @@ export const NotRegisterUser = () => {
                     return <LoginForm onSubmit={onSubmit} errorMsg={errorMsg} loading={loading} textButton='Sign In' />
                   }
                 }
-              </LoginMutation>
-            </div>
-          )
-        }
-    }
-    </LoginContext.Consumer>
+      </LoginMutation>
+    </div>
   )
 }

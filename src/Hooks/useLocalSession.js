@@ -4,7 +4,7 @@ export const useLocalSession = ({ key, initialState }) => {
   const [sessionValue, setSessionValue] = useState(() => {
     try {
       const item = window.sessionStorage.getItem(key)
-      return item !== null ? JSON.parse(item) : initialState
+      return item !== null ? item : initialState
     } catch (error) {
       console.error(error)
       return null

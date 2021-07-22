@@ -1,15 +1,15 @@
-import React, { useEffect, useRef, useState } from 'react'
-import { Buttom, Img, ImgWrapper, Article } from './styles'
+import React from 'react'
+import { Img, ImgWrapper, Article } from './styles'
 
-import { useLocalStorage } from '../../Hooks/useLocalStorage'
+// import { useLocalStorage } from '../../Hooks/useLocalStorage'
 import { useNearScreen } from '../../Hooks/useNearScreen'
 import { FlavButton } from '../FlavButton'
 import { ToggleLikeMutation } from '../../Containers/ToggleLikeMutation'
 import { Link } from 'react-router-dom'
 
-export const PhotoCard = ({ id, likes = 0, src }) => {
-  const key = `keyLike-${id}`
-  const [like, setLike] = useLocalStorage({ key, initialState: false })
+export const PhotoCard = ({ id, liked, likes = 0, src }) => {
+  // const key = `keyLike-${id}`
+  // const [like, setLike] = useLocalStorage({ key, initialState: false })
   const [show, element] = useNearScreen()
 
   return (
@@ -26,15 +26,15 @@ export const PhotoCard = ({ id, likes = 0, src }) => {
               {
                 (toggleLike) => {
                   const handleClick = () => {
-                    !like && toggleLike({
+                    toggleLike({
                       variables: {
                         input: { id }
                       }
                     })
-                    setLike(!like)
+                    // setLike(!like)
                   }
 
-                  return <FlavButton like={like} likes={likes} onClick={handleClick} />
+                  return <FlavButton like={liked} likes={likes} onClick={handleClick} />
                 }
               }
             </ToggleLikeMutation>

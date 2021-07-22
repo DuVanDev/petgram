@@ -16,7 +16,7 @@ const ListOfCategories = () => {
             />
           </Item>)
         : [1, 2, 3, 4, 5].map(
-            (categories, key) =>
+            ({}, key) =>
               <Item key={key} />
           )}
     </List>

@@ -1,9 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { SubmitButtom } from '../Components/SubmitButtom'
+import { LoginContext } from '../Context/LoginContext'
 
 export const Profile = () => {
-	return (
-		<div>Profile			
-		</div>
-	)
+  const { signOut } = useContext(LoginContext)
+  return (
+    <div>Profile
+      <SubmitButtom value='Sign out' onClick={signOut} />
+    </div>
+  )
 }
-

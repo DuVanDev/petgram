@@ -1,18 +1,21 @@
 import React, { createContext, useState } from 'react'
 import { useLocalSession } from '../Hooks/useLocalSession'
-import { useLocalStorage } from '../Hooks/useLocalStorage'
 
 export const LoginContext = createContext()
 
 const LoginContextProvider = ({ children }) => {
-  const [isAuth, setIsAuth] = useState(false)
   const [token, setToken] = useLocalSession({ key: 'token', initialState: undefined })
+  const [isAuth, setIsAuth] = useState(() => token)
 
   const value = {
     isAuth,
     loginUser: (token) => {
       setToken(token)
       setIsAuth(true)
+    },
+    signOut: () => {
+      window.sessionStorage.removeItem('token')
+      setIsAuth(false)
     }
   }
 

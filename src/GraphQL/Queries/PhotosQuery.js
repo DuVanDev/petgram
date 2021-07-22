@@ -22,3 +22,15 @@ query getSinglePhoto( $id :ID! ){
     liked
   }
 }`
+
+export const GET_FAVS = `
+query getFavs {
+  favs {
+    id
+    categoryId
+    src
+    likes
+    userId
+  }
+}
+`
