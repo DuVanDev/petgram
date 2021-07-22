@@ -1,15 +1,23 @@
 import React from 'react'
+// import useGetPhotos from '../../Hooks/useGetPhotos'
 import { PhotoCard } from '../PhotoCard'
+/* categoryId: 2
+id: "0"
+liked: false
+likes: 7
+src: "https://res.cloudinary.com/midudev/image/upload/w_300/q_80/v1560262103/dogs.png"
+userId: "100" */
 
-export const ListOfPhotoCard = () => {
-  const DEFAULT_IMAGE = 'https://res.cloudinary.com/midudev/image/upload/w_300/q_80/v1560262103/dogs.png'
+export const ListOfPhotoCard = ({ data: { photos = [] } }) => {
+  // const DEFAULT_IMAGE = 'https://res.cloudinary.com/midudev/image/upload/w_300/q_80/v1560262103/dogs.png'
+
   return (
     <ul>
       {
-		[1, 2, 3, 4, 5, 6].map(
+		photos.map(
 		  (photo, key) =>
   <li key={key}>
-    <PhotoCard src={DEFAULT_IMAGE} />
+    <PhotoCard {...photo} />
   </li>
 		)
 			}

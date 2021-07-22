@@ -1,4 +1,4 @@
-import { useState } from 'react'
+isetSessionValuemport { useState } from 'react'
 
 export const useLocalStorage = ({ key, initialState }) => {
   const [storageValue, setStorageValue] = useState(() => {
@@ -13,6 +13,7 @@ export const useLocalStorage = ({ key, initialState }) => {
 
   const setLocalStorage = (value) => {
     try {
+      console.log({ value, key })
       window.localStorage.setItem(key, value)
       setStorageValue(value)
     } catch (error) {

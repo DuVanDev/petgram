@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { NavLink } from 'react-router-dom'
 
 export const Image = styled.img`
 border: 1px solid #ddd;
@@ -11,7 +12,7 @@ height: 75px;
 width: 75px;
 `
 
-export const Anchor = styled.a`
+export const NavLinkCategories = styled(NavLink)`
 display: flex;
 flex-direction: column;
 text-align: center;
