@@ -1,27 +1,23 @@
-import React, { Profiler } from 'react'
-import { Route, Switch } from 'react-router-dom'
+import React, { Suspense, useContext } from 'react'
+import { Redirect, Route, Switch } from 'react-router-dom'
 import ListOfCategories from './Components/ListOfCategories'
 import { Logo } from './Components/Logo'
 import { NavBar } from './Components/NavBar'
-import { PhotoCardWithQuery } from './Containers/PhotoCardWithQuery'
-import { UserLogged } from './Containers/UseLogged'
 import { LoginContext } from './Context/LoginContext'
-import { Detail } from './Pages/Detail'
-import { Favorites } from './Pages/Favorites'
-import Home from './Pages/Home'
+import { Erro400 } from './Pages/400'
 import { NotRegisterUser } from './Pages/NotRegisterUser'
-import { Profile } from './Pages/Profile'
-// import { withPhotos } from './HOC/withPhotos'
 import { GlobalStyles } from './Styles/GlobalStyles'
 
+const Favorites = React.lazy(() => import('./Pages/Favorites'))
+const Home = React.lazy(() => import('./Pages/Home'))
+const Detail = React.lazy(() => import('./Pages/Detail'))
+const Profile = React.lazy(() => import('./Pages/Profile'))
+
 const App = () => {
-  // const ListOfPhotoCardWithPhoto = withPhotos(ListOfPhotoCard)
-  const searchVariables = window.location.search
-  const urlParams = new window.URLSearchParams(searchVariables)
-  const detailId = urlParams.get('detail')
+  const { isAuth } = useContext(LoginContext)
 
   return (
-    <>
+    <Suspense fallback={() => <div />}>
       <GlobalStyles />
       <header>
         <Logo />
@@ -36,31 +32,21 @@ const App = () => {
           <Route exact path={['/pet/:categoryId', '/']}>
             <Home />
           </Route>
-          <LoginContext.Consumer>
-            {
-              ({ isAuth }) => {
-                const PageFavorites = isAuth
-                  ? Favorites
-                  : NotRegisterUser
-
-                const PageProfile = isAuth
-                  ? Profile
-                  : NotRegisterUser
-
-                return (
-                  <>
-                    <Route path='/favorites' component={PageFavorites} />
-                    <Route path='/profile' component={PageProfile} />
-                  </>
-                )
-              }
-            }
-          </LoginContext.Consumer>
-
+          {!isAuth && (
+            <Route path='/login'>
+              <NotRegisterUser />
+            </Route>
+          )}
+          {!isAuth && <Redirect from='/favorites' to='/login' />}
+          {!isAuth && <Redirect from='/profile' to='/login' />}
+          {isAuth && <Redirect from='/login' to='/' />}
+          <Route path='/favorites' component={Favorites} />
+          <Route path='/profile' component={Profile} />
+          <Route path='*' component={Erro400} />
         </Switch>
         <NavBar />
       </main>
-    </>
+    </Suspense>
   )
 }
 

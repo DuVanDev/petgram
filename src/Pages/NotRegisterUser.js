@@ -9,7 +9,7 @@ export const NotRegisterUser = () => {
 
   return (
     <div>
-      Sing Up
+      
       <RegisterMutation>
         {
                   (register, { error, loading }) => {

@@ -1,11 +1,16 @@
 
 import React from 'react'
 import { useParams } from 'react-router-dom'
+import { Layout } from '../Components/Layout'
 import { PhotoCardWithQuery } from '../Containers/PhotoCardWithQuery'
 
-export const Detail = () => {
+const Detail = () => {
   const { detailId } = useParams()
   return (
-    <PhotoCardWithQuery id={detailId} />
+    <Layout title='Detail'>
+      <PhotoCardWithQuery id={detailId} />
+    </Layout>
   )
 }
+
+export default Detail

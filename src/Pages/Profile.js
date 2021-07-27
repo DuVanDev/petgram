@@ -1,12 +1,15 @@
 import React, { useContext } from 'react'
+import { Layout } from '../Components/Layout'
 import { SubmitButtom } from '../Components/SubmitButtom'
 import { LoginContext } from '../Context/LoginContext'
 
-export const Profile = () => {
+const Profile = () => {
   const { signOut } = useContext(LoginContext)
   return (
-    <div>Profile
+    <Layout title='Profile' description='Your data'>
       <SubmitButtom value='Sign out' onClick={signOut} />
-    </div>
+    </Layout>
   )
 }
+
+export default Profile
