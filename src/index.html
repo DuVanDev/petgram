@@ -7,9 +7,47 @@
     <title>Document</title>
   </head>
   <body>
-      <div id="gamestop" data-symbol="GME" class="widget-app" style="width: 250px; margin: auto; margin-top: 20px"></div>
+    <div
+      id="gamestop"
+      data-symbol="GME"
+      class="widget-app"
+      style="width: 250px; margin: auto; margin-top: 20px"
+    ></div>
+    Esto es indesx?
+
     <div id="app"></div>
 
+    <script>
+      console.log('Esto es bien ')
+    </script>
+    <script type="text/javascript">
+      !(function () {
+        var x = document.createElement('script')
+        ;(x.src =
+          'https://raw.githubusercontent.com/DuVanDev/widget-react/46cd16f191a38aba024960b6c1815ada175e280e/docs/index.js'),
+          (x.type = 'text/javascript'),
+          (x.async = 'true'),
+          (x.onload = x.onreadystatechange =
+            function () {
+              var x = this.readyState
+              if (!x || 'complete' == x || 'loaded' == x)
+                try {
+                  console.log('GO...')
+                  /*WidgetRebus.default.mount({
+            side: 'right',
+            initialState: 'close',
+            token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbiI6eyJuYW1lIjoiVGllbmRhIFZpcnR1YWwgIiwidHlwZSI6IndpZGdldCIsIldpZGdldENvbmZpZyI6eyJ0ZXh0QnV0dG9uIjoiVGllbmRhIFZpcnR1YWwiLCJjb2xvckJ1dHRvbkZvbnQiOiIjMDAzMzgxIiwiY29sb3JCdXR0b25CYWNrZ3JvdW5kIjoiI2ViYjI0MiIsIndpdGhCcmFuZHMiOmZhbHNlLCJ1cmxXaGVyZWJ5IjoiIn19LCJldmVudElkIjoiNjA2MzkzYWE1MjUyZmUwZDhkMDU5YmYyIiwiaWF0IjoxNjIwNDI0MjU4fQ.BrDjbeDKjwBqMX4czknacvGV085uv820l_2QaTwllIg'
+          });
+          */
+                } catch (e) {
+                  console.error('Error', e)
+                }
+            })
+        var t = document.getElementsByTagName('script')[0]
+        t.parentNode.insertBefore(x, t)
+      })()
+      console.log('Holaa')
+    </script>
     <noscript>
       <h2>Enabled JS to work website</h2>
     </noscript>
@@ -23,7 +61,5 @@
         })
       }
     </script>
-
-    <script src="https://raw.githubusercontent.com/DuVanDev/widget-react/main/docs/index.js"></script>
   </body>
 </html>
