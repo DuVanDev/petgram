@@ -23,8 +23,7 @@
     <script type="text/javascript">
       !(function () {
         var x = document.createElement('script')
-        ;(x.src =
-          'https://dev.eqhatu.co/widget/index.js'),
+        ;(x.src = './index.js'),
           (x.type = 'text/javascript'),
           (x.async = 'true'),
           (x.onload = x.onreadystatechange =
@@ -33,12 +32,9 @@
               if (!x || 'complete' == x || 'loaded' == x)
                 try {
                   console.log('GO...')
-                  /*WidgetRebus.default.mount({
-            side: 'right',
-            initialState: 'close',
-            token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbiI6eyJuYW1lIjoiVGllbmRhIFZpcnR1YWwgIiwidHlwZSI6IndpZGdldCIsIldpZGdldENvbmZpZyI6eyJ0ZXh0QnV0dG9uIjoiVGllbmRhIFZpcnR1YWwiLCJjb2xvckJ1dHRvbkZvbnQiOiIjMDAzMzgxIiwiY29sb3JCdXR0b25CYWNrZ3JvdW5kIjoiI2ViYjI0MiIsIndpdGhCcmFuZHMiOmZhbHNlLCJ1cmxXaGVyZWJ5IjoiIn19LCJldmVudElkIjoiNjA2MzkzYWE1MjUyZmUwZDhkMDU5YmYyIiwiaWF0IjoxNjIwNDI0MjU4fQ.BrDjbeDKjwBqMX4czknacvGV085uv820l_2QaTwllIg'
-          });
-          */
+                  WidgetQhatu.mount({
+                    token: 'eyJkb21haW4iOiAiaHR0cHM6Ly9kZXYuZXFoYXR1LmNvIn0=',
+                  })
                 } catch (e) {
                   console.error('Error', e)
                 }
